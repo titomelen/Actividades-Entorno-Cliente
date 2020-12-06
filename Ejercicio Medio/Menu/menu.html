@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+            background-color: #8188D8;
+            padding: 10px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: white;
+        }
+
+        span{
+            padding: 20px;
+        }
+
+        span:hover{
+            background-color: white;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: white;"><u>Mi sitio Web</u></h1>
+        <div>
+            <span class="listas" onclick="resaltar(this)" value="Inicio">Inicio</span>
+            <span class="listas" onclick="resaltar(this)" value="Blog">Blog</span>
+            <span class="listas" onclick="resaltar(this)" value="SobreMi">Sobre mi</span>
+            <span class="listas" onclick="resaltar(this)" value="Fotos">Fotos</span>
+            <span class="listas" onclick="resaltar(this)" value="Portfolio">Portfolio</span>
+        </div>
+    </header>
+
+    <script src="menu.js"></script>
+</body>
+</html>
