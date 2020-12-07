@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        h1{
+            color: blue;
+        }
+
+        .calculadora {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            border: solid black 2px;
+            background-color: #9FF9FF;
+        }
+
+        div div {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            justify-content: space-around;
+        }
+
+        input {
+            margin: 10px;
+            border: solid black 2px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi calculadora</h1>
+    <div class="calculadora">
+        <input type="text" id="valor_numero">
+        <div>
+            <button onclick="añadirNum(1)">1</button>
+            <button onclick="añadirNum(2)">2</button>
+            <button onclick="añadirNum(3)">3</button>
+            <button onclick="añadirNum(4)">4</button>
+        </div>
+
+        <div>
+            <button onclick="añadirNum(5)">5</button>
+            <button onclick="añadirNum(6)">6</button>
+            <button onclick="añadirNum(7)">7</button>
+            <button onclick="añadirNum(8)">8</button>
+        </div>
+
+        <div>
+            <button onclick="añadirNum(9)">9</button>
+            <button onclick="añadirNum(0)">0</button>
+            <button onclick="operacion(1)">+</button>
+            <button onclick="operacion(2)">-</button>
+        </div>
+
+        <div>
+            <button onclick="operacion(3)">/</button>
+            <button onclick="operacion(4)">*</button>
+            <button onclick="borrar()">CE</button>
+            <button onclick="resultado()">=</button>
+        </div>
+    </div>
+    <script>
+        let num1 = 0;
+	    let num2 = 0;
+        let opera;
+        
+        function añadirNum(numero){
+            if(num1==0 && num1 !== '0.'){
+                num1 = numero;
+            }else{
+                num1 += numero;
+            }
+            clean();
+        }
+
+        function borrar(){
+            num1 = 0;
+            num2 = 0;
+            clean();
+        }
+
+        function operacion(valor){
+            if (num1 == 0){
+                num1 = parseInt(document.getElementById("valor_numero").value);
+            }
+            num2 = parseInt(num1);
+            num1= 0;
+            opera = valor;
+        }
+
+        function resultado(){
+            switch (opera){
+                case 1:
+                    num1 += num2;
+                break;
+                case 2:
+                    num1 = num2 - num1;
+                break;
+                case 3:
+                    num1 = num2 / num1;
+                break;
+                case 4:
+                    num1 *= num2;
+                    
+                break;
+             }
+            clean();
+            num2 = num1;
+            num1 = 0;
+        }
+
+        function clean(){
+            document.getElementById("valor_numero").value = num1;
+        }
+    </script>
+</body>
+</html>

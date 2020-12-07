@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambia Imagen</title>
+    <style>
+        img{
+            border: solid black 1px;
+        }
+    </style>
+</head>
+<body>
+    <img id="imagen" src="https://picsum.photos/200/300?random=1">
+    <button onclick="cambiaImagen()">Cambiar</button>
+    <script>
+        const imagen = document.getElementById('imagen');
+        function cambiaImagen () {
+            const random = Math.floor(Math.random()*100)
+            imagen.setAttribute('src', `https://picsum.photos/200/300?random=${random}`)
+        }
+    </script>
+</body>
+</html>
